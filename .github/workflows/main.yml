@@ -38,4 +38,4 @@ jobs:
           #commit_user_email: "me@email.org"
           #commit_author: "My User <me@email.org>"
           commit_message: "Generate SVG and PNG images for PlantUML diagrams" 
-          branch: ${{ github.head_ref }}
+          #branch: ${{ github.head_ref }}  #https://github.com/stefanzweifel/git-auto-commit-action
