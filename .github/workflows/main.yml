@@ -1,22 +1,25 @@
+#https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths
+# https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet
+
 name: Generate PlantUML Diagrams
 on:
   push:
     paths:
-      - '**.puml'
+      - '**.puml' #matches zero or more of any character
     branches:
       - master
 jobs:
   ci:
     runs-on: ubuntu-latest
     env:
-        UML_FILES: "*.puml"
+        UML_FILES: ".puml"
     steps:
       - name: Checkout Source 
         uses: actions/checkout@v1
       - name: Generate SVG Diagrams
         uses: cloudbees/plantuml-github-action@master
         with:
-            args: -v -tsvg $UML_FILES
+            args: -v -tsvg sequence.puml
       - name: Get changed UML files
         id: getfile
         run: |
@@ -27,11 +30,11 @@ jobs:
       - name: Generate PNG Diagrams
         uses: cloudbees/plantuml-github-action@master
         with:
-            args: -v -tpng $UML_FILES
+            args: -v -tpng sequence.puml
       - name: Push Local Changes
         uses:  stefanzweifel/git-auto-commit-action@v4.1.2 
         with: 
-          commit_user_name: "crashemdind"
+          commit_user_name: "crashedmind"
           #commit_user_email: "me@email.org"
           #commit_author: "My User <me@email.org>"
           commit_message: "Generate SVG and PNG images for PlantUML diagrams" 
