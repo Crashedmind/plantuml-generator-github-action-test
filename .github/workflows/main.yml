@@ -33,7 +33,7 @@ jobs:
       - name: Generate PNG Diagrams
         uses: cloudbees/plantuml-github-action@master
         with:
-            args: -v -tpng *${{ env.UML_FILES }} -o -o ${{ env.OUTPUT_DIR }}
+            args: -v -tpng *${{ env.UML_FILES }} -o  ${{ env.OUTPUT_DIR }}
       
       - name: List files
         run: ls *${{ env.UML_FILES }}; ls -o ${{ env.OUTPUT_DIR }}/*.svg; ls -o ${{ env.OUTPUT_DIR }}/*.png      
