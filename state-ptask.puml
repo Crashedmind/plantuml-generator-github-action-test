@@ -14,9 +14,6 @@ skinparam state {
 
 
 
-
-
-
 [*] -right-> PENDING
 PENDING -right-> STARTED
 STARTED -down-> PROGRESS
