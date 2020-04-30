@@ -34,4 +34,6 @@ jobs:
         run: cat *.puml; ls *.svg; ls *.png      
       - name: Commit files
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           git commit -m "Add changes" -a
