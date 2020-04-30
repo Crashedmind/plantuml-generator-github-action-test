@@ -35,6 +35,5 @@ jobs:
       - name: Push Local Changes
         uses:  stefanzweifel/git-auto-commit-action@v4.1.6 
         with: 
-          #file_pattern: *.png *.svg
           commit_message: "Auto Generate SVG and PNG images for PlantUML diagrams" 
           #branch: ${{ github.head_ref }}
