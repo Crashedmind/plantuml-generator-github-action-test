@@ -32,8 +32,6 @@ jobs:
             args: -v -tsvg *${{ env.UML_FILES }}
       - name: Display diagrams
         run: cat *.puml; ls *.svg; ls *.png      
-      - name: Push Local Changes
-        uses:  stefanzweifel/git-auto-commit-action@v4.1.6 
-        with: 
-          commit_message: "Auto Generate SVG and PNG images for PlantUML diagrams" 
-          #branch: ${{ github.head_ref }}
+      - name: Commit files
+        run: |
+          git commit -m "Add changes" -a
