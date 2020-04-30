@@ -1,24 +1,3 @@
-# PlantUML GitHub action
-
-This action runs the [PlantUML](https://plantuml.com/) tool to generate images from PlantUML text diagrams.
-
-## Inputs
-
-### `args`
-
-**Required** The arguments for PlantUML tool. Default `"-h"`.
-
-## Outputs
-
-
-## Example usage
-
-This is an an example of a workflow which generates the svg and png images from PlantUML text digram. It will
-trigger every time there is a change in a `puml` file.
-
-`.github/worksflows/main.yml`:
-
-```yaml
 name: Generate PlantUML Diagrams
 on:
   push:
@@ -60,6 +39,3 @@ jobs:
           file_pattern: *.png *.svg
           commit_message: "Auto Generate SVG and PNG images for PlantUML diagrams" 
           #branch: ${{ github.head_ref }}
-```
-
-The last setp will commit the generated images back into the master branch.
