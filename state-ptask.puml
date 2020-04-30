@@ -12,6 +12,7 @@ skinparam state {
     ArrowColor         #222266
 }
 
+
 [*] -right-> PENDING
 PENDING -right-> STARTED
 STARTED -down-> PROGRESS
